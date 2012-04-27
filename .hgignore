@@ -1,0 +1,4 @@
+Procfile
+\.env
+\.foreman
+ChangeLog

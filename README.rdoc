@@ -1,0 +1,89 @@
+= foreman-export-daemontools
+
+home :: https://bitbucket.org/ged/foreman-export-daemontools
+source :: https://bitbucket.org/ged/foreman-export-daemontools
+github :: https://github.com/ged/foreman-export-daemontools
+docs :: http://deveiate.org/code/foreman-export-daemontools
+
+
+== Description
+
+An exporter for David Dollar's Foreman[https://github.com/ddollar/foreman] that
+outputs service directories that can be managed by 'supervise' from DJB's
+daemontools[http://cr.yp.to/daemontools.html].
+
+
+== Prerequisites
+
+* Ruby 1.9.3 or better
+* Foreman
+
+
+== Installation
+
+    $ gem install foreman-export-daemontools
+
+
+== Usage
+
+To export your Procfile to the standard +/service+ directory:
+
+    $ foreman export daemontools /service
+
+This will create a <tt>/service/<app>-<proc></tt> directory for each +Procfile+
+process. If you have the concurrency set to something > 1 for any of them it
+will create an individual numbered service directory for each one in the
+format: <tt>/service/<app>-<proc>-<num></tt>
+
+Each directory will be generated with a +down+ file, which will prevent
+supervise from automatically starting it before you have a chance to look it over.
+After you confirm that everything looks okay, you can start them up just by
+removing +down+.
+
+
+== Contributing
+
+You can check out the current development source with Mercurial from its
+{main repository}[https://bitbucket.org/ged/foreman-export-daemontools]. Or
+if you prefer Git, via its
+{Github mirror}[https://github.com/ged/foreman-export-daemontools].
+
+After checking out the source, run:
+
+    $ rake newb
+
+This task will install any missing dependencies, run the tests/specs,
+and generate the API documentation.
+
+
+== License
+
+Copyright (c) 2012, Michael Granger
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice,
+  this list of conditions and the following disclaimer.
+
+* Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+* Neither the name of the author/s, nor the names of the project's
+  contributors may be used to endorse or promote products derived from this
+  software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE
+FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+

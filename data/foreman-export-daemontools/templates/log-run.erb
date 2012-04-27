@@ -1,0 +1,8 @@
+#!/bin/sh
+
+<% if self.log %>
+% logdir = self.log + '/' + procdir.basename
+exec setuidgid <%= user %> multilog t <%= logdir %>
+<% else %>
+exec setuidgid <%= user %> multilog t ./main
+<% end %>
