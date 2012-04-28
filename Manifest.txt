@@ -6,7 +6,6 @@ Manifest.txt
 Procfile
 README.rdoc
 Rakefile
-bin/foreman_export_supervise
 data/foreman-export-daemontools/templates/log-run.erb
 data/foreman-export-daemontools/templates/run.erb
 lib/foreman/export/daemontools.rb

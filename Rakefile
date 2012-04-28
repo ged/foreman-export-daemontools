@@ -9,7 +9,7 @@ Hoe.plugin :mercurial
 
 Hoe.plugins.delete :rubyforge
 
-hoespec = Hoe.spec( 'foreman-export-supervise' ) do
+hoespec = Hoe.spec( 'foreman-export-daemontools' ) do
 	self.readme_file = 'README.rdoc'
 	self.history_file = 'History.rdoc'
 	self.extra_rdoc_files = FileList[ '*.rdoc' ]
