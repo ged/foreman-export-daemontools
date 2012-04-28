@@ -1,7 +1,6 @@
 = foreman-export-daemontools
 
 home :: https://bitbucket.org/ged/foreman-export-daemontools
-source :: https://bitbucket.org/ged/foreman-export-daemontools
 github :: https://github.com/ged/foreman-export-daemontools
 docs :: http://deveiate.org/code/foreman-export-daemontools
 
