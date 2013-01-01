@@ -1,3 +1,8 @@
+== v0.1.0 [2013-01-01] Michael Granger <ged@FaerieMUD.org>
+
+Updated for newer versions of Foreman.
+
+
 == v0.0.1 [2012-04-27] Michael Granger <ged@FaerieMUD.org>
 
 Initial release.

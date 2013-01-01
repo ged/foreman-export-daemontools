@@ -17,7 +17,7 @@ require 'foreman/cli'
 class Foreman::Export::Daemontools < Foreman::Export::Base
 
 	# Library version constant
-	VERSION = '0.0.1'
+	VERSION = '0.1.0'
 
 	# Version-control revision constant
 	REVISION = %q$Revision$
