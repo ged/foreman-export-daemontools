@@ -81,11 +81,12 @@ class Foreman::Export::Daemontools < Foreman::Export::Base
 			servicedir.mkpath
 		end
 
-	    engine.procfile.entries.each do |process|
-			say "Setting up %s-%s service directories..." % [ app, process.name ]
-			count   = self.concurrency[ process.name ]
+	    engine.each_process do |name, process|
+			say "Setting up %s-%s service directories..." % [ app, name ]
+			count   = engine.formation[ name ]
 			say "  concurrency = #{count}"
-			procdir = servicedir + "%s-%s" % [ app, process.name ]
+			next unless count >= 1
+			procdir = servicedir + "%s-%s" % [ app, name ]
 
 			# Create a numbered service dir for each instance if there are
 			# more than one
@@ -107,6 +108,7 @@ class Foreman::Export::Daemontools < Foreman::Export::Base
 
 		# Write the down file to keep the service from spinning up before the user has
 		# a chance to look things over
+		say "  writing the 'down' file"
 		write_file( procdir + 'down', '' )
 
 		# Set up logging
@@ -122,7 +124,7 @@ class Foreman::Export::Daemontools < Foreman::Export::Base
 		say "  setting up environment variables..."
 		envdir = procdir + 'env'
 		envdir.mkpath
-        port = engine.port_for( process, num, self.port )
+        port = engine.port_for( process, num )
 		environment_variables = { 'PORT' => port }.
 			merge( engine.environment ).
 			merge( inline_variables(process.command) )

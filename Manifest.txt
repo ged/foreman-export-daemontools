@@ -1,5 +1,3 @@
-.env
-.foreman
 ChangeLog
 History.rdoc
 Manifest.txt
@@ -9,8 +7,6 @@ Rakefile
 data/foreman-export-daemontools/templates/log-run.erb
 data/foreman-export-daemontools/templates/run.erb
 lib/foreman/export/daemontools.rb
-spec/data/.env
-spec/data/.foreman
 spec/data/Procfile
 spec/foreman/export/daemontools_spec.rb
 spec/helpers.rb

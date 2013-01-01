@@ -3,3 +3,4 @@ Procfile
 \.foreman
 ChangeLog
 doc/
+pkg/

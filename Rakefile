@@ -16,7 +16,7 @@ hoespec = Hoe.spec( 'foreman-export-daemontools' ) do
 
 	self.developer 'Michael Granger', 'ged@FaerieMUD.org'
 
-	self.dependency 'foreman', '~> 0.45'
+	self.dependency 'foreman', '~> 0.60'
 	self.dependency 'hoe-deveiate',    '~> 0.1', :developer
 
 	self.spec_extras[:licenses] = ["BSD"]

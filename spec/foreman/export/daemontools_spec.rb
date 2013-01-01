@@ -33,12 +33,12 @@ describe Foreman::Export::Daemontools do
 	let( :servicedir ) { Pathname(Dir.tmpdir) + 'service' }
 	let( :datadir )    { Pathname(__FILE__).dirname.parent.parent + 'data' }
 	let( :procfile )   { datadir + 'Procfile' }
-	let( :engine )     { Foreman::Engine.new(procfile) }
+	let( :engine )     { Foreman::Engine.new(options).load_procfile(procfile) }
 	let( :options )    {{
 		:app_root    => datadir,
 		:app         => 'test',
 		:env         => datadir + '.env',
-		:concurrency => 'cms=2,api=0,mongrel2=1',
+		:formation   => 'cms=2,api=0,mongrel2=1',
 		:user        => 'www',
 	}}
 
@@ -59,6 +59,9 @@ describe Foreman::Export::Daemontools do
 
 
 	it "exports to the filesystem" do
+		engine.env['HOMEDIR']       = '/Users/ged'
+		engine.env['MONGREL2_HOME'] = '/var/run/mongrel2'
+
 		subject.export
 		servicedir.should exist()
 
